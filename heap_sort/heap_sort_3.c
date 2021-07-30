@@ -6,7 +6,8 @@
 
 #include <stdio.h>
 
-#define MAX_HEAP_SIZ 100
+#define DEFAULT_DATA  (-1)
+#define MAX_HEAP_SIZ (100)
 
 int minHeapCnt;
 int maxHeapCnt;
@@ -29,6 +30,10 @@ int maxHeapCmp(int pData, int cData) {
 
 void heapInit(int *pHeapCnt) {
     *pHeapCnt = 0;
+}
+
+int heapPeek(int heap[], int heapCnt) {
+    return (heapCnt < 1) ? DEFAULT_DATA : heap[1];
 }
 
 void heapPush(int heap[], int *pHeapCnt, int data, int (*compare)(int, int)) {
@@ -96,6 +101,7 @@ int main() {
         }
 
         printf("#%d", tc);
+        printf(" (Peek : %d)", heapPeek(minHeap, minHeapCnt));
         for (int i = 0; i < N; i++) {
             printf(" %d", heapPop(minHeap, &minHeapCnt, minHeapCmp));
 
@@ -103,6 +109,7 @@ int main() {
         printf("\n");
 
         printf("#%d", tc);
+        printf(" (Peek : %d)", heapPeek(maxHeap, maxHeapCnt));
         for (int i = 0; i < N; i++) {
             printf(" %d", heapPop(maxHeap, &maxHeapCnt, maxHeapCmp));
         }

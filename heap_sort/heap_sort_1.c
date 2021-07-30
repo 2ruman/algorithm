@@ -6,13 +6,18 @@
 
 #include <stdio.h>
 
-#define MAX_HEAP_SIZ 100
+#define DEFAULT_DATA  (-1)
+#define MAX_HEAP_SIZ (100)
 
 int heap[MAX_HEAP_SIZ];
 int heapCnt;
 
 void heapInit() {
     heapCnt = 0;
+}
+
+int heapPeek() {
+    return (heapCnt < 1) ? DEFAULT_DATA : heap[1];
 }
 
 void heapPush(int data) {
@@ -78,6 +83,7 @@ int main() {
         }
 
         printf("#%d", tc);
+        printf(" (Peek : %d)", heapPeek());
         for (int i = 0; i < N; i++) {
             printf(" %d", heapPop());
         }

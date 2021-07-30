@@ -6,7 +6,8 @@
 
 #include <stdio.h>
 
-#define MAX_DATA_CNT 100
+#define DEFAULT_DATA  (-1)
+#define MAX_DATA_CNT (100)
 #define MAX_HEAP_SIZ (MAX_DATA_CNT + 1)
 
 typedef struct _DATA {
@@ -32,6 +33,10 @@ int heapCnt;
 
 void heapInit() {
     heapCnt = 0;
+}
+
+int heapPeek() {
+    return (heapCnt < 1) ? DEFAULT_DATA : heap[1];
 }
 
 int compare(int parent, int child) {
