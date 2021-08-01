@@ -36,6 +36,9 @@ unsigned long long hash(const char *str) {
     unsigned long long hVal = 0;
     while (*str != '\0') {
         hVal = (hVal << 5) + (*str++ - 'a' + 1);
+#if 0
+        hVal = (hVal * 29) + (*str++ - 'a' + 1); // 29 is prime number to reduce hash collision
+#endif
     }
     return hVal;
 }
