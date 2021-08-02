@@ -98,7 +98,7 @@ int main() {
     printf(" BN1 : "); printBN(bn1);
     printf(" BN2 : "); printBN(bn2);
     printf(" BN3 : "); printBN(bn3);
-    printf(" BN4 : "); printBN(bn4);\
+    printf(" BN4 : "); printBN(bn4);
     printf("===========================================================================\n");
     plusBN(bn1, bn2, res);
     printf(" BN1 + BN2 = "); printBN(res);
